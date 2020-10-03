@@ -2,7 +2,7 @@
 
 # source this file and use as required
 
-selected=org.lineageos.audiofx org.lineageos.jelly com.android.stk com.android.gallery3d org.lineageos.eleven com.android.email org.lineageos.etar
+selected="org.lineageos.audiofx org.lineageos.jelly com.android.stk com.android.gallery3d org.lineageos.eleven com.android.email org.lineageos.etar"
 
 disable_selected(){
   for i in $@; do
@@ -10,7 +10,7 @@ disable_selected(){
   done
 }
 
-enable_selected()
+enable_selected(){
   for i in $@; do
     pm enable $i
   done
