@@ -1,0 +1,13 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<img src="file.png" id="pic"/>
+	<script>
+		setInterval(function() {	
+		var imageElement = document.getElementById('pic');
+		imageElement.src = 'file.png?rand=' + Math.random();
+		}, 1000);
+	</script>
+	</body>
+</html>
