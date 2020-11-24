@@ -1,0 +1,3 @@
+android-backup-*/
+*.conf
+.DS_Store

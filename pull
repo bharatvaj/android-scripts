@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+source common
+
+adb_zip_and_pull(){
+    #TODO handle paths, currently file or folder is pulled in the same directory without structure
+    filename="$1"
+    backup_dir="$2"
+    adb_zip "$filename" && adb pull "$filename.zip" "$backup_dir/"
+    adb shell "rm $filename.zip"
+}
+
+adb_backup(){
+    #TODO maybe use hash to check if the files in backup and in phone are synced
+    if [ $# -lt 1 ]; then
+        echo 'Usage: adb_backup <list_file> [backup_dir]'
+        return;
+    fi
+    list_file="$1"
+    if [ "$2" == "" ]; then
+        backup_dir="android-backup-$(date +%d%m%y%H%M%S)"
+    else
+        backup_dir="$2"
+    fi
+    if [ ! -d "$backup_dir" ]; then
+        mkdir "$backup_dir"
+    fi
+    logfile="$backup_dir/log.txt" 
+    if [ ! -f "$logfile" ]; then
+        touch "$logfile"
+    fi
+
+    files_to_backup=$(comm -23 "$list_file" "$logfile")
+
+    adb root
+    for i in ${files_to_backup}; do
+        adb_zip_and_pull "$i" "$backup_dir" && echo "$i" >> "$logfile"
+    done
+}

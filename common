@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+function adb_zip(){
+    #TODO obtain filename from path
+	zip_name=$1
+	src=$1
+	adb shell "zip -r $zip_name.zip $src"
+}

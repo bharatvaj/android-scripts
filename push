@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# script to restore android backed files inside sdcard
+
+adb_restore(){
+    if [ $# -ne 1 ]; then
+        echo 'Usage: adb_restore <backup_dir>'
+        return -1;
+    fi
+
+    backup_dir="$1"
+    logfile="$backup_dir/log.txt"
+
+    mapfile -t files_to_restore < "$logfile"
+
+    for i in ${files_to_restore[@]}; do
+        unzip "$i"
+        u_filename=$(basename \"$i\" .zip)
+        #TODO copy to the specified file structure
+        adb push "$u_filename" /
+    done
+}
