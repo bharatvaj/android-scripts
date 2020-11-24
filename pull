@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# A simple script for backing up important files(contacts, call log, messages) for android 
+
 source common
 
 adb_zip_and_pull(){
