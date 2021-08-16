@@ -24,7 +24,6 @@ com.android.stk
 org.lineageos.audiofx
 org.lineageos.eleven
 org.lineageos.recorder
-org.lineageos.jelly
 org.lineageos.etar
 )
 
