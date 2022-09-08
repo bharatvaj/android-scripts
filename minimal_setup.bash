@@ -25,6 +25,7 @@ org.lineageos.audiofx
 org.lineageos.eleven
 org.lineageos.recorder
 org.lineageos.etar
+org.lineageos.jelly
 )
 
 for package in ${uninstall_list[@]}; do
