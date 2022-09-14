@@ -2,7 +2,6 @@
 
 # This will setup PixelOperator font
 
-
 adb root
 adb remount
 adb push fonts.xml /etc/fonts.xml
