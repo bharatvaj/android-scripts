@@ -20,6 +20,7 @@ com.android.fmradio
 com.android.messaging
 com.android.gallery3d
 com.android.stk
+com.android.email
 # lineage
 org.lineageos.audiofx
 org.lineageos.eleven
