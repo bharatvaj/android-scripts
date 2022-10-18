@@ -14,6 +14,7 @@ function uninstall() {
 # TODO move this lits to separate file
 uninstall_list=(
 # aosp
+com.google.android.apps.cameralite
 com.android.calculator2
 com.android.contacts
 com.android.fmradio
